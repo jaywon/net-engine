@@ -4,11 +4,15 @@ NetEngine is terminal emulator game engine designed to allow students to explore
 
 The premise is that the engine is completely dynamic and configurable by an editable configuration soure so that different scenarios, tools, users, and network configurations can be created to allow for different learning objectives or critical analysis or even possibly assessment.
 
+### Prerequisites
+- Python 3+
+
 ### Installation:
 `git clone https://github.com/jaywon/net-engine.git`
 
 ### Usage:
-`python netengine.py`
+`cd net-engine`
+`./netengine.py`
 
 Enter available commands to explore the given configurable environment and determine next steps in an objective to gain root on any machine on the network.
 
