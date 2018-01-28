@@ -28,6 +28,7 @@ Enter available commands to explore the given configurable environment and deter
 - `ssh` - Access another server on the network
 - `nmap` - Show other servers on the network
 - `wireshark` - TBD
+- `ping` - TBD
 
 Problems solved:
 - Real-world labs are timely and have liablity scenarios for teaching real-world skills
