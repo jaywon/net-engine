@@ -18,6 +18,18 @@ machines = {
                     "admin"
                 ]
             },
+            {
+                "username": "tony",
+                "password": "marinebiologist",
+                "groups": [
+                    "sudo",
+                    "admin"
+                ]
+            },
+        ],
+        "groups": [
+            "sudo",
+            "admin",
         ],
         "commands": {
             "nmap": {
@@ -83,6 +95,11 @@ machines = {
                     "admin"
                 ]
             },
+        ],
+        "groups": [
+            "sudo",
+            "admin",
+            "networkers"
         ],
         "commands": {
             "nc": {
