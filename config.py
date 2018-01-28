@@ -155,5 +155,76 @@ machines = {
                "var": ""
             }
         }
+    },
+    "192.168.0.16": {
+        "users": [
+            {
+                "username": "tyler",
+                "password": "hax0r",
+                "groups": [
+                    "sudo",
+                    "admin"
+                ]
+            },
+        ],
+        "groups": [
+            "sudo",
+            "admin",
+            "networkers"
+        ],
+        "commands": {
+            "nc": {
+                "groups": [
+                    "sudo",
+                    "networkers"
+                ]
+            },
+            "wireshark": {
+                "groups": [
+                    "sudo",
+                    "networkers"
+                ]
+            },
+            "ssh": {
+                "groups": [
+                    "sudo",
+                    "networkers"
+                ]
+            }
+
+        },
+        "history": [
+            "ls",
+            "cd ~/passwords/",
+            "cat supersecret.txt",
+            "ssh dave@123.45.67.89"
+        ],
+        "processes": [
+            "firewall"
+        ],
+        "firewall_rules": {
+            "allow": [
+                {
+                    "port": 80,
+                    "protocol": Protocol.HTTP
+                },
+                {
+                    "port": 1384,
+                    "protocol": Protocol.ICMP
+                }
+            ],
+            "deny": [
+                {
+                    "port": 443,
+                    "protocol": Protocol.ALL
+                }
+            ]
+        },
+        "directories": {
+            "/": {
+               "etc": "",
+               "var": ""
+            }
+        }
     }
 }
