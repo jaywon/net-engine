@@ -49,6 +49,13 @@ def show_history():
         print(entry)
 
 def nmap():
+    current_machine = get_current_machine_config()
+    firewall_rules = current_machine["firewall_rules"]
+    for egress_deny in firewall_rules["egress"]["deny"]:
+        if egress_deny["port"] == "*":
+            print(copy.copy_text["FIREWALL_RULE_VIOLATION"][LANGUAGE_SELECTION] + ": ")
+            return
+
     for machine in config.machines:
         print(machine)
 

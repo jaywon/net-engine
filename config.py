@@ -61,22 +61,29 @@ machines = {
             "firewall"
         ],
         "firewall_rules": {
-            "allow": [
-                {
-                    "port": 80,
-                    "protocol": Protocol.HTTP
-                },
-                {
-                    "port": 1384,
-                    "protocol": Protocol.ICMP
-                }
-            ],
-            "deny": [
-                {
-                    "port": 443,
-                    "protocol": Protocol.ALL
-                }
-            ]
+            "ingress": {
+                "allow": [
+                    {
+                        "port": 80,
+                        "protocol": Protocol.HTTP
+                    },
+                    {
+                        "port": 1384,
+                        "protocol": Protocol.ICMP
+                    }
+                ],
+                "deny": []
+            },
+            "egress": {
+                "allow": [
+                    {
+                        "port": "*",
+                        "protocol": Protocol.ALL
+                    }
+                ],
+                "deny": [
+                ]
+            }
         },
         "directories": {
             "/": {
@@ -132,22 +139,34 @@ machines = {
             "firewall"
         ],
         "firewall_rules": {
-            "allow": [
-                {
-                    "port": 80,
-                    "protocol": Protocol.HTTP
-                },
-                {
-                    "port": 1384,
-                    "protocol": Protocol.ICMP
-                }
-            ],
-            "deny": [
-                {
-                    "port": 443,
-                    "protocol": Protocol.ALL
-                }
-            ]
+            "ingress": {
+                "allow": [
+                    {
+                        "port": 80,
+                        "protocol": Protocol.HTTP
+                    },
+                    {
+                        "port": 1384,
+                        "protocol": Protocol.ICMP
+                    }
+                ],
+                "deny": [
+                    {
+                        "port": 443,
+                        "protocol": Protocol.ALL
+                    }
+                ]
+            },
+            "egress": {
+                "allow": [
+                    {
+                        "port": "*",
+                        "protocol": Protocol.ALL
+                    }
+                ],
+                "deny": [
+                ]
+            }
         },
         "directories": {
             "/": {
@@ -163,7 +182,8 @@ machines = {
                 "password": "hax0r",
                 "groups": [
                     "sudo",
-                    "admin"
+                    "admin",
+                    "networkers"
                 ]
             },
         ],
@@ -190,8 +210,12 @@ machines = {
                     "sudo",
                     "networkers"
                 ]
+            },
+            "nmap": {
+                "groups": [
+                    "networkers"
+                ]
             }
-
         },
         "history": [
             "ls",
@@ -203,22 +227,28 @@ machines = {
             "firewall"
         ],
         "firewall_rules": {
-            "allow": [
-                {
-                    "port": 80,
-                    "protocol": Protocol.HTTP
-                },
-                {
-                    "port": 1384,
-                    "protocol": Protocol.ICMP
-                }
-            ],
-            "deny": [
-                {
-                    "port": 443,
-                    "protocol": Protocol.ALL
-                }
-            ]
+            "ingress": {
+                "allow": [
+                    {
+                        "port": 80,
+                        "protocol": Protocol.HTTP
+                    },
+                    {
+                        "port": 1384,
+                        "protocol": Protocol.ICMP
+                    }
+                ],
+                "deny": []
+            },
+            "egress": {
+                "allow": [],
+                "deny": [
+                    {
+                        "port": "*",
+                        "protocol": Protocol.ALL
+                    }
+                ]
+            }
         },
         "directories": {
             "/": {
