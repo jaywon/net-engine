@@ -1,8 +1,14 @@
 pages = {
     "nmap": {
-        "description": "Show all IP address on network"
+        "description": {
+            "en": "Show all IP address on network",
+            "es": "Mostrar todas las direcciones IP en la red"
+        }
     },
     "ssh": {
-        "description": "Connect to remote machines"
+        "description": {
+            "en": "Connect to remote machines",
+            "es": "Conectar a la máquina remota"
+        }
     }
 }

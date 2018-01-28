@@ -1,6 +1,6 @@
 import man
 
-def show_man_page(command):
+def show_man_page(command, lang):
     if command is None:
         print("Specify command")
         return
@@ -9,4 +9,4 @@ def show_man_page(command):
         print("No man page exists for this command")
         return
 
-    print(man.pages[command]["description"])
+    print(man.pages[command]["description"][lang])
