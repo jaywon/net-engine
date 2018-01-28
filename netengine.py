@@ -6,6 +6,7 @@ import sys
 
 LANGUAGE_SELECTION = "en"
 CURRENT_IP = next(iter(config.machines))
+CURRENT_MACHINE_CONFIG = {}
 
 def signal_handler(signal, frame):
     exit()
@@ -13,6 +14,10 @@ def signal_handler(signal, frame):
 def exit():
     print("\nBuh bye....")
     sys.exit(0)
+
+def get_current_machine_config():
+    current_machine = config.machines[CURRENT_IP]
+    return current_machine
 
 def set_language():
     global LANGUAGE_SELECTION
@@ -24,17 +29,22 @@ def ip_config():
     print(CURRENT_IP)
 
 def list_tools():
-    current_machine = config.machines[CURRENT_IP]
+    current_machine = get_current_machine_config()
     for command in current_machine["commands"].keys():
         print(command)
 
 def list_users():
-    current_machine = config.machines[CURRENT_IP]
+    current_machine = get_current_machine_config()
     for user in current_machine["users"]:
         print(user["username"])
 
+def list_groups():
+    current_machine = get_current_machine_config()
+    for group in current_machine["groups"]:
+        print(group)
+
 def show_history():
-    current_machine = config.machines[CURRENT_IP]
+    current_machine = get_current_machine_config()
     for entry in current_machine["history"]:
         print(entry)
 
@@ -69,6 +79,8 @@ def process_command(command, argument):
         ip_config()
     elif command == "users":
         list_users()
+    elif command == "groups":
+        list_groups()
     elif command == "history":
         show_history()
     elif command == "language":
