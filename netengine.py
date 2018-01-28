@@ -14,6 +14,12 @@ def exit():
     print("\nBuh bye....")
     sys.exit(0)
 
+def set_language():
+    global LANGUAGE_SELECTION
+    language = input("What language would you like to use?")
+    # validate input
+    LANGUAGE_SELECTION = language
+
 def ip_config():
     print(CURRENT_IP)
 
@@ -49,7 +55,7 @@ def process_command(command, argument):
         if not command or not argument:
             print("Invalid number of inputs")
             return
-        man_pages.show_man_page(argument)
+        man_pages.show_man_page(argument, LANGUAGE_SELECTION)
     elif command == "nmap":
         nmap()
     elif command == "tools":
@@ -65,6 +71,8 @@ def process_command(command, argument):
         list_users()
     elif command == "history":
         show_history()
+    elif command == "language":
+        set_language()
     elif command == "exit":
         exit()
     else:
