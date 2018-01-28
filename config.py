@@ -31,6 +31,12 @@ machines = {
                     "sudo",
                     "networkers"
                 ]
+            },
+            "ssh": {
+                "groups": [
+                    "sudo",
+                    "networkers"
+                ]
             }
         },
         "history": [
@@ -90,7 +96,14 @@ machines = {
                     "sudo",
                     "networkers"
                 ]
+            },
+            "ssh": {
+                "groups": [
+                    "sudo",
+                    "networkers"
+                ]
             }
+
         },
         "history": [
             "ls",
