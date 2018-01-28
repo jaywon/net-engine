@@ -45,8 +45,11 @@ Features:
 - Easy network configuration
 - Easy user/group configuration
 - Configurable documentation for tools
+- Configurable history for "clues" in configured scenarios
 
 Contribution:
-A million things could/would/should be done, looking for ideas and supporters.
+A million things could/would/should be done, happt to hear ideas and meet interested contributors.
+
+Issues for suggested features welcome and considered contribution as well.
 
 Fork and pull request bruh...
