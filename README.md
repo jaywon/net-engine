@@ -39,7 +39,7 @@ Enter available commands to explore the given configured network environment and
 - `wireshark` - TBD
 - `ping` - TBD
 
-Problems solved:
+### Problems solved:
 - Real-world labs are timely and have liablity scenarios for teaching real-world skills
 - Existing man pages can be dense for beginning learners
 - Provisioning or working within existing educational infrastructure is challenging, only needs Python installed
@@ -47,7 +47,7 @@ Problems solved:
 - ESL students may get left behind in the details of self-learning
 - Students teaching may have high level knowledge of technology but not time, knowledge, or resources for actual network configuration
 
-Features:
+### Features:
 - Configurable network and per operating system scenarios
 - Multi-lingual documentation and gameplay suppor
 - Easy firewall configuration
@@ -56,7 +56,7 @@ Features:
 - Configurable documentation for tools
 - Configurable history for "clues" in configured scenarios
 
-Contribution:
+### Contributors:
 A million things could/would/should be done, happt to hear ideas and meet interested contributors.
 
 Issues for suggested features welcome and considered contribution as well.
