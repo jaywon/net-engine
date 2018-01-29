@@ -4,6 +4,7 @@ NetEngine is terminal emulator game engine designed to allow teachers to create 
 
 The premise is that the engine is completely dynamic and configurable by an easily editable configuration source so that different scenarios, tools, users, and network configurations can be created to allow for different learning objectives or critical analysis or even possibly assessment without mastery or overhead of actual systems and all their complexities.
 
+(CLICK IMAGE FOR DEMO VIDEO)
 
 [![NetEngine Demo](https://i.ytimg.com/vi/dWhr8SRrk9A/0.jpg)](https://youtu.be/dWhr8SRrk9A "NetEngine Demo")
 
