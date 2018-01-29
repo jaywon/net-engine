@@ -1,8 +1,8 @@
 # NetEngine - Hack The Planet Educator Edition
 
-NetEngine is terminal emulator game engine designed to allow students to explore some of the basic principles of network based reconnaissance tools, Linux and possibly foriegn language studies.
+NetEngine is terminal emulator game engine designed to allow teachers to create scenario based network and Linux learning environments and challenges and allow students to explore some of the basic principles of network based reconnaissance tools, Linux operating system configuration commands and possibly even foriegn language studies with multi-lingual support.
 
-The premise is that the engine is completely dynamic and configurable by an editable configuration soure so that different scenarios, tools, users, and network configurations can be created to allow for different learning objectives or critical analysis or even possibly assessment.
+The premise is that the engine is completely dynamic and configurable by an easily editable configuration source so that different scenarios, tools, users, and network configurations can be created to allow for different learning objectives or critical analysis or even possibly assessment without mastery or overhead of actual systems and all their complexities.
 
 ### Prerequisites
 - Python 3+
@@ -12,11 +12,12 @@ The premise is that the engine is completely dynamic and configurable by an edit
 
 ### Usage:
 `cd net-engine`
+
 `./netengine.py`
 
-Enter available commands to explore the given configurable environment and determine next steps in an objective to gain root on any machine on the network.
+Enter available commands to explore the given configured network environment and determine next steps in an objective to traverse the network or gain root on vulnerable machine(s) on the network.
 
-(NOTE: Demo has no implementation for configuring or gaining root, conceptual engine prototype only)
+(NOTE: Demo has no implementation for actually configuring or gaining root, conceptual engine prototype with basic commands and system configuration only)
 
 #### Available Commands:
 - `man` - Show the man page for a given tool
