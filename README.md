@@ -1,4 +1,4 @@
-# NetEngine - Hack The Planet Educator Edition
+# NetEngine - Hack The Planet (Educator Edition)
 
 NetEngine is terminal emulator game engine designed to allow teachers to create scenario based network and Linux learning environments and challenges and allow students to explore some of the basic principles of network based reconnaissance tools, Linux operating system configuration commands and possibly even foriegn language studies with multi-lingual support.
 
