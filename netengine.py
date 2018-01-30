@@ -6,9 +6,52 @@ import man_pages
 import signal
 import sys
 
+LANGUAGES_SUPPORTED = ["en", "es"]
 LANGUAGE_SELECTION = "en"
 CURRENT_IP = next(iter(config.machines))
 CURRENT_MACHINE_CONFIG = {}
+CMDS = {
+    "man": {
+        "num_params": 1,
+        "run": lambda arg: man_pages.show_man_page(arg, LANGUAGE_SELECTION)
+    },
+    "ssh": {
+        "num_params": 1,
+        "run": lambda arg: ssh(arg)
+    },
+    "nmap": {
+        "num_params": 0,
+        "run": lambda arg: nmap()
+    },
+    "tools": {
+        "num_params": 0,
+        "run": lambda arg: list_tools()
+    },
+    "ifconfig": {
+        "num_params": 0,
+        "run": lambda arg: ip_config()
+    },
+    "users": {
+        "num_params": 0,
+        "run": lambda arg: list_users()
+    },
+    "groups": {
+        "num_params": 0,
+        "run": lambda arg: list_groups()
+    },
+    "history": {
+        "num_params": 0,
+        "run": lambda arg: show_history()
+    },
+    "language": {
+        "num_params": 0,
+        "run": lambda arg: set_language()
+    },
+    "exit": {
+        "num_params": 0,
+        "run": lambda arg: exit()
+    }
+}
 
 def signal_handler(signal, frame):
     exit()
@@ -21,11 +64,21 @@ def get_current_machine_config():
     current_machine = config.machines[CURRENT_IP]
     return current_machine
 
+def validate_language(lang):
+    global LANGUAGES_SUPPORTED
+    return lang is not None and lang in LANGUAGES_SUPPORTED
+
 def set_language():
     global LANGUAGE_SELECTION
-    language = input("What language would you like to use?")
+    language = None
     # validate input
+    while not validate_language(language):
+        language = input(copy.copy_text["LANGUAGE_CHOICE"][LANGUAGE_SELECTION] + " ")
+        if not validate_language(language):
+            print(copy.copy_text["LANGUAGE_UNSUPPORTED"][LANGUAGE_SELECTION])
+
     LANGUAGE_SELECTION = language
+    print(copy.copy_text["LANGUAGE_CHANGED"][LANGUAGE_SELECTION])
 
 def ip_config():
     print(CURRENT_IP)
@@ -64,44 +117,22 @@ def nmap():
 def ssh(ip_address):
     global CURRENT_IP
     if not ip_address in config.machines:
-        print("Not a valid IP address")
+        print(copy.copy_text["INVALID_IP"][LANGUAGE_SELECTION])
     else:
         CURRENT_IP = ip_address
 
 def process_command(command, argument):
-
-    if command == "man":
-        if not command or not argument:
-            print("Invalid number of inputs")
-            return
-        man_pages.show_man_page(argument, LANGUAGE_SELECTION)
-    elif command == "nmap":
-        nmap()
-    elif command == "tools":
-        list_tools()
-    elif command == "ssh":
-        if not command or not argument:
-            print("Invalid number of inputs")
-            return
-        ssh(argument)
-    elif command == "ifconfig":
-        ip_config()
-    elif command == "users":
-        list_users()
-    elif command == "groups":
-        list_groups()
-    elif command == "history":
-        show_history()
-    elif command == "language":
-        set_language()
-    elif command == "exit":
-        exit()
+    global CMDS
+    if command not in CMDS.keys():
+        print(copy.copy_text["INVALID_CMD"][LANGUAGE_SELECTION])
+    elif CMDS[command]["num_params"] > 0 and not argument:
+        print(copy.copy_text["INVALID_PARAM_NUM"][LANGUAGE_SELECTION])
     else:
-        print("Not a valid command, please try again")
+        CMDS[command]["run"](argument)
 
 def input_loop():
     #print(copy.copy_text["SELECT_TOOL"][LANGUAGE_SELECTION] + ": ")
-    user_input = input("user@" + CURRENT_IP + ":~$")
+    user_input = input("user@" + CURRENT_IP + ":~$ ")
 
     parsed_input = user_input.split()
     command = parsed_input[0]
@@ -114,13 +145,19 @@ def input_loop():
 
         process_command(command, argument)
     else:
-        print("Invalid number of inputs")
+        print(copy.copy_text["INVALID_PARAM_NUM"][LANGUAGE_SELECTION])
         return
 
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
-    LANGUAGE_SELECTION = input("Select your language: ")
+    lang = None
+    while not validate_language(lang):
+        lang = input("Select your language: ")
+        if not validate_language(lang):
+            print("We're sorry, your choice is currently unavailable.")
+
+    LANGUAGE_SELECTION = lang
 
     while True:
         input_loop()
