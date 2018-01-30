@@ -64,7 +64,7 @@ def get_current_machine_config():
     current_machine = config.machines[CURRENT_IP]
     return current_machine
 
-def validate_language(lang):
+def is_supported_language(lang):
     global LANGUAGES_SUPPORTED
     return lang is not None and lang in LANGUAGES_SUPPORTED
 
@@ -72,9 +72,9 @@ def set_language():
     global LANGUAGE_SELECTION
     language = None
     # validate input
-    while not validate_language(language):
+    while not is_supported_language(language):
         language = input(copy.copy_text["LANGUAGE_CHOICE"][LANGUAGE_SELECTION] + " ")
-        if not validate_language(language):
+        if not is_supported_language(language):
             print(copy.copy_text["LANGUAGE_UNSUPPORTED"][LANGUAGE_SELECTION])
 
     LANGUAGE_SELECTION = language
@@ -152,9 +152,9 @@ def input_loop():
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
     lang = None
-    while not validate_language(lang):
+    while not is_supported_language(lang):
         lang = input("Select your language: ")
-        if not validate_language(lang):
+        if not is_supported_language(lang):
             print("We're sorry, your choice is currently unavailable.")
 
     LANGUAGE_SELECTION = lang
